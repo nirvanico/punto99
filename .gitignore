@@ -1,0 +1,3 @@
+# Example .gitignore files: https://github.com/github/gitignore
+
+/node_modules/
