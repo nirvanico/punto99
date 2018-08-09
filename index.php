@@ -25,23 +25,41 @@
 
             <!-- fine della navbar -->
 
-            <div class="col bg-dark">
+            <div class="col mt-5 ">
 
                 <div id=result>
                     <?php /* qua lavora ajax */ ?>
                 </div>
 
             </div>
-            <!--fine del carosello -->
+
         </div>
 
+
+
     </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/custom.js"></script>
 
 </body>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">Social here </div>
+            <div class="col-md-4">Indirizzi </div>
+            <div class="col-md-4">Greetings</div>
+        </div>
+    </div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- plugin x la gallery -->
+<script src="js/lightbox.min.js"></script>
+<!--custom javascript file -->
+<script src="js/custom.js"></script>
+</footer>
+
 
 </html>

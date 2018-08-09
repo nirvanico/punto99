@@ -1,22 +1,24 @@
 $(document).ready(function () {
+    //funzioni pagina caricata
     //inserisce home html come pagina primaria
-    $('#backimg').attr('src','img/home.png');
+
     $('#result').load('home.html').hide().fadeIn('slow');
 
-    //inzio del menù jquery
-    $('#home').click(function(){
-        $('#backimg').attr('src','img/home.png').hide().fadeIn('slow');
+
+    $('#home').click(function () {
+
         $('#result').load('home.html').hide().fadeIn('slow');
     });
 
-    $('#stampa').click(function(){
-        $('#backimg').attr('src','img/stampa.png');
+    $('#stampa').click(function () {
+
         $('#result').load('stampa.html').hide().fadeIn('slow');
     });
-    $('#visual').click(function(){
-        $('#backimg').attr('src','img/visual.png');
+    $('#visual').click(function () {
+
         $('#result').load('visual.html').hide().fadeIn('slow');
     })
+
 
 
 });
