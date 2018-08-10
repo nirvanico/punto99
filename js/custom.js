@@ -19,6 +19,7 @@ $(document).ready(function () {
         $('#result').load('visual.html').hide().fadeIn('slow');
     })
 
-
-
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 });
