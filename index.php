@@ -12,16 +12,17 @@
     <link rel="stylesheet" href="css/punto99.min.css">
 
 
-    <title>Hello, world!</title>
+    <title>Punto 99 </title>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
+
+        <div class="row no-gutters">
 
             <!--inzio navbar -->
 
             <?php include "navbar.php" ?>
+
 
             <!-- fine della navbar -->
 
@@ -37,7 +38,8 @@
 
 
 
-    </div>
+
+
 
 </body>
 

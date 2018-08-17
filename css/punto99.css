@@ -7626,10 +7626,6 @@ html.lb-disable-scrolling {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1; }
 
-i {
-  color: white;
-  font-size: 30px; }
-
 body {
   background-color: #343a40; }
 
