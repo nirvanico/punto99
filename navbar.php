@@ -16,71 +16,71 @@
                     <a class="nav-link icon-home" id="home" href="home.html"> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="stampa.html">Stampa</a>
+                    <a class="nav-link icon-print" href="stampa.html"> Stampa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="visual.html">Visual</a>
+                    <a class="nav-link icon-picture" href="visual.html"> Visual</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="adesivi.html">Adesivi</a>
+                    <a class="nav-link icon-stickers" href="adesivi.html"> Adesivi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="automezzi.html">Automezzi</a>
+                    <a class="nav-link icon-truck" href="automezzi.html"> Automezzi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="striscioni.html">Striscioni</a>
+                    <a class="nav-link icon-banner" href="striscioni.html"> Striscioni</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="insegne.html">Insegne</a>
+                    <a class="nav-link icon-shop" href="insegne.html"> Insegne</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pannelli.html">Pannelli</a>
+                    <a class="nav-link icon-panel" href="pannelli.html"> Pannelli</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="gadget.html">Gadget</a>
+                    <a class="nav-link icon-cog" href="gadget.html"> Gadget</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="abbigliamento.html">Abbigliamento</a>
+                    <a class="nav-link icon-t-shirt" href="abbigliamento.html"> Abbigliamento</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contatti.html">Contatti</a>
+                    <a class="nav-link icon-mail" href="contatti.html"> Contatti</a>
                 </li>
             </ul>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
 
                 <ul class="navbar-nav d-sm-none mr-auto flex-column">
                     <li class="nav-item">
                         <a class="nav-link icon-home" id="home" href="home.html"> Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="stampa.html">Stampa</a>
+                        <a class="nav-link icon-print" href="stampa.html"> Stampa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="visual.html">Visual</a>
+                        <a class="nav-link icon-picture" href="visual.html"> Visual</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="adesivi.html">Adesivi</a>
+                        <a class="nav-link icon-stickers" href="adesivi.html"> Adesivi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="automezzi.html">Automezzi</a>
+                        <a class="nav-link icon-truck" href="automezzi.html"> Automezzi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="striscioni.html">Striscioni</a>
+                        <a class="nav-link icon-banner" href="striscioni.html"> Striscioni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="insegne.html">Insegne</a>
+                        <a class="nav-link icon-shop" href="insegne.html"> Insegne</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pannelli.html">Pannelli</a>
+                        <a class="nav-link icon-panel" href="pannelli.html"> Pannelli</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="gadget.html">Gadget</a>
+                        <a class="nav-link icon-cog" href="gadget.html"> Gadget</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="abbigliamento.html">Abbigliamento</a>
+                        <a class="nav-link icon-t-shirt" href="abbigliamento.html"> Abbigliamento</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contatti.html">Contatti</a>
+                        <a class="nav-link icon-mail" href="contatti.html"> Contatti</a>
                     </li>
 
                 </ul>
