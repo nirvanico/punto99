@@ -7642,9 +7642,10 @@ strong {
 .nav-item:hover {
   background-color: #686868; }
 
-.linea:hover {
-  border-left: 4px solid red;
-  padding-left: 8px; }
+.active {
+  border-left: 4px solid blue !important;
+  padding-left: 8px;
+  background-color: #686868; }
 
 .jumbotron {
   background-color: #e9ecef80; }

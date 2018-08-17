@@ -12,38 +12,38 @@
 
 
             <ul class="navbar-nav d-none d-xl-block mr-auto flex-column">
-                <li class="nav-item active">
-                    <a class="nav-link icon-home" id="home"> Home</a>
+                <li class="nav-item">
+                    <a class="nav-link icon-home" id="home" href="home.html"> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="stampa">Stampa</a>
+                    <a class="nav-link"  href="stampa.html">Stampa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="visual">Visual</a>
+                    <a class="nav-link"  href="visual.html">Visual</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="adesivi">Adesivi</a>
+                    <a class="nav-link" href="adesivi.html">Adesivi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="automezzi">Automezzi</a>
+                    <a class="nav-link" href="automezzi.html">Automezzi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="striscioni">Striscioni</a>
+                    <a class="nav-link" href="striscioni.html">Striscioni</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="insegne">Insegne</a>
+                    <a class="nav-link" href="insegne.html">Insegne</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="pannelli">Pannelli</a>
+                    <a class="nav-link" href="pannelli.html">Pannelli</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="gadget">Gadget</a>
+                    <a class="nav-link" href="gadget.html">Gadget</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="abbigliamento">Abbigliamento</a>
+                    <a class="nav-link" href="abbigliamento.html">Abbigliamento</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="Contatti">Contatti</a>
+                    <a class="nav-link" href="contatti.html">Contatti</a>
                 </li>
             </ul>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">

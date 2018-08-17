@@ -1,28 +1,30 @@
-
-
 $(document).ready(function () {
+
     //funzioni pagina caricata
     //inserisce home html come pagina primaria
-
     $('#result').load('home.html').hide().fadeIn('slow');
+    $('#home').addClass('active');
 
-    $('.nav-link').wrap('<div class="linea"></div>');
+    // aggiunge una linea rossa accanto a nav-link
+    $('.nav-link').hover(function () {
+            $(this).css("border-left", "4px solid red");
+        },
+        function () {
+            $(this).css("border-left", 'none');
+        });
 
-    $('#home').click(function () {
-        $('#result').load('home.html').hide().fadeIn('slow');
+    // menù ajax con effetti
+    $('.nav-link').click(function (e) {
+        $('.nav-link').removeClass('active');
+        var value = $(this).attr('href');
+        $(this).addClass('active').hide().fadeIn('slow');
+
+
+        $('#result').load(value).hide().fadeIn('slow'); // carico le pagine al interno del div #result
+
+        e.preventDefault(); //disabilita la funziolità href dei link perchè sostituta da ajax
     });
-
-    $('#stampa').click(function () {
-
-        $('#result').load('stampa.html').hide().fadeIn('slow');
-
-    });
-    $('#visual').click(function () {
-
-        $('#result').load('visual.html').hide().fadeIn('slow');
-    })
-
-// abiita tooltip
+    // abiita tooltip
 
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()

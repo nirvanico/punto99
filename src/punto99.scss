@@ -407,9 +407,10 @@ strong {
     background-color: #686868;
 }
 
-.linea:hover{
-    border-left: 4px solid red;
+.active{
+    border-left: 4px solid blue !important;
     padding-left: 8px ;
+    background-color: #686868;
 }
 
 //adatto opacità del jumbotron
