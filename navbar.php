@@ -16,7 +16,6 @@
                     <a class="nav-link icon-home" id="home"> Home</a>
                 </li>
                 <li class="nav-item">
-
                     <a class="nav-link" id="stampa">Stampa</a>
                 </li>
                 <li class="nav-item">

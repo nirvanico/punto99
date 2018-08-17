@@ -7640,11 +7640,11 @@ strong {
   background-color: #121415 !important; }
 
 .nav-item:hover {
-  background-color: coral; }
+  background-color: #686868; }
 
-.nav-item::before {
-  border-left: 2px solid red;
-  padding-left: 10px; }
+.linea:hover {
+  border-left: 4px solid red;
+  padding-left: 8px; }
 
 .jumbotron {
   background-color: #e9ecef80; }
