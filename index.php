@@ -7,6 +7,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Punto99 nasce per svolgere servizi grafici visivi di piccolo e grande formato su vari supporti per agevolare le aziende che cercano una qualità di stampa alta ed una garanzia sulle applicazioni sia da interno che da esterno.">
 
     <!-- The CSS -->
     <link rel="stylesheet" href="css/punto99.min.css">
@@ -14,7 +15,7 @@
 
 
 
-    <title>Punto 99 </title>
+    <title>Punto99</title>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
             <div id=result>
                 <?php /* qua lavora ajax */ ?>
             </div>
-            <div class="animated infinite bounce delay-2s btn btn-primary">TEST</div>
+
         </div>
 
     </div>
