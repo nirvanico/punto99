@@ -5,7 +5,10 @@
 ?>
     <div class="col-md-2 navbar-color">
         <nav class="navbar navbar-expand-lg navbar-dark navbar-color flex-column ">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">
+                <div class="d-inline-block mr-1 cerchio" id="logo"></div>
+                <span class="my-auto">99</span>
+            </a>
             <button class="navbar-toggler d-md-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

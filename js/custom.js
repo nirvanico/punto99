@@ -25,4 +25,5 @@ $(document).ready(function () {
         e.preventDefault(); //disabilita la funziolità href dei link perchè sostituta da ajax
     });
 
+
 });

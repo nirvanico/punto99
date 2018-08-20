@@ -448,6 +448,17 @@ strong {
 }
 
 //navbar
+.cerchio {
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    background: red;
+}
+
+.navbar-brand {
+    font-size: 30px;
+}
+
 .navbar-color {
     background-color: #121415 !important;
 }
@@ -487,6 +498,18 @@ strong {
 
 .imgadesivi {
     background: url(../images/ADESIVI.png) no-repeat;
+    background-size: cover;
+
+}
+
+.imgautomezzi {
+    background: url(../images/ADESIVI.png) no-repeat;
+    background-size: cover;
+
+}
+
+.imgstriscioni {
+    background: url(../images/STRISCIONI.png) no-repeat;
     background-size: cover;
 
 }
