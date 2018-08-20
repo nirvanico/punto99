@@ -8,12 +8,12 @@
                 <p class="text-white text-left font-italic"> Corso G.B. Volpini 88/90 14057 Isola D'Asti</p>
                 <p class="text-white "><strong>Telefono/ Fax:</strong> 0141 95 85 23</p>
                 <p class="text-white "><strong>Cellulare: </strong>338 99 17 414</p>
-                <a class="text-white "><strong>Email: </strong> info@puntonovantanove.com</a>
+                <a class="text-white " href="mailto:info@puntonovantanove.com"><strong>Email: </strong> info@puntonovantanove.com</a>
             </div>
         </div>
         <div class="ml-auto mt-auto p-2 bd-highlight">
             <p class="text-light greetings">
-                made with ❤ by <a href="#">@nirvanico</a> &copy;
+                made with ❤ by <a href="https://nirvanico.github.io/">@nirvanico</a> &copy;
                 <?php echo date('Y'); ?> </p>
         </div>
     </div>

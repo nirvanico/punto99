@@ -7656,6 +7656,14 @@ strong {
   background: url(../images/STAMPA.png) no-repeat;
   background-size: cover; }
 
+.imgvisual {
+  background: url(../images/VISUAL.png) no-repeat;
+  background-size: cover; }
+
+.imgadesivi {
+  background: url(../images/ADESIVI.png) no-repeat;
+  background-size: cover; }
+
 .gallery {
   width: 25%;
   height: auto; }
