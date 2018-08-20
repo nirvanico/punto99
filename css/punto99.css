@@ -7377,7 +7377,8 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 */
-[class^="icon-"]:before, [class*=" icon-"]:before {
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
@@ -7661,5 +7662,12 @@ strong {
 
 footer {
   padding-top: 30px;
+  padding-bottom: 30px;
   background-color: #1b1e21;
-  height: 200px; }
+  height: 100%; }
+
+.greetings {
+  font-size: 10px; }
+
+.info {
+  font-size: 15px; }
