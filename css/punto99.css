@@ -7639,6 +7639,10 @@ strong {
   border-radius: 9px;
   background: red; }
 
+.sub-text {
+  font-size: 14px;
+  font-style: italic; }
+
 .navbar-brand {
   font-size: 30px; }
 
@@ -7679,6 +7683,22 @@ strong {
 
 .imgstriscioni {
   background: url(../images/STRISCIONI.png) no-repeat;
+  background-size: cover; }
+
+.imgpannelli {
+  background: url(../images/PANNELI.png) no-repeat;
+  background-size: cover; }
+
+.imggadget {
+  background: url(../images/GADJET.png) no-repeat;
+  background-size: cover; }
+
+.imgabbigliamento {
+  background: url(../images/ABBIGLIAMENTO.png) no-repeat;
+  background-size: cover; }
+
+.imgcontatti {
+  background: url(../images/CONTATTI.png) no-repeat;
   background-size: cover; }
 
 .gallery {
