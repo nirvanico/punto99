@@ -7,7 +7,7 @@
             <div class="flex-row">
 
                 <a class="text-white font-italic" href="https://goo.gl/maps/haw3LB3QhAp"> Corso G.B. Volpini 88/90 14057 Isola D'Asti</a>
-                <p class="text-white icon-phone"> 0141 95 85 23</p>
+                <p class="text-white icon-phone mt-2"> 0141 95 85 23</p>
                 <p class="text-white icon-mobile"> 338 99 17 414</p>
                 <a class="text-white icon-mail " href="mailto:info@puntonovantanove.com"> info@puntonovantanove.com</a>
             </div>
