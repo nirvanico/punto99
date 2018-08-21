@@ -5,10 +5,11 @@
         <div class="p-2 bd-highlight info">
             <h4 class="text-white">Punto99:</h4>
             <div class="flex-row">
-                <p class="text-white text-left font-italic"> Corso G.B. Volpini 88/90 14057 Isola D'Asti</p>
-                <p class="text-white "><strong>Telefono/ Fax:</strong> 0141 95 85 23</p>
-                <p class="text-white "><strong>Cellulare: </strong>338 99 17 414</p>
-                <a class="text-white " href="mailto:info@puntonovantanove.com"><strong>Email: </strong> info@puntonovantanove.com</a>
+
+                <a class="text-white font-italic" href="https://goo.gl/maps/haw3LB3QhAp"> Corso G.B. Volpini 88/90 14057 Isola D'Asti</a>
+                <p class="text-white icon-phone"> 0141 95 85 23</p>
+                <p class="text-white icon-mobile"> 338 99 17 414</p>
+                <a class="text-white icon-mail " href="mailto:info@puntonovantanove.com"> info@puntonovantanove.com</a>
             </div>
         </div>
         <div class="ml-auto mt-auto p-2 bd-highlight">
