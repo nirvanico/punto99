@@ -6,7 +6,9 @@ var gulp = require("gulp"), //http://gulpjs.com/
     rename = require('gulp-rename'), //https://www.npmjs.org/package/gulp-rename
     concat = require('gulp-concat'), //https://www.npmjs.org/package/gulp-concat
     uglify = require('gulp-uglify'), //https://www.npmjs.org/package/gulp-uglify
+    imagemin = require('gulp-imagemin'), //https://www.npmjs.com/package/gulp-imagemin
     log = util.log;
+
 
 var sassFiles = "src/*.scss";
 // generazione da sass a css minifizzato
@@ -30,5 +32,18 @@ gulp.task("watch", function () {
     log("Watching scss files for modifications");
     gulp.watch(sassFiles, ["sass"]);
 });
+
+gulp.task('imgmin', () =>
+    gulp.src('src/images/*')
+    .pipe(imagemin({
+        interlaced: true,
+        progressive: true,
+        optimizationLevel: 8,
+        svgoPlugins: [{
+            removeViewBox: true
+        }]
+    }))
+    .pipe(gulp.dest('images'))
+);
 
 gulp.task("default", ["sass"]);
