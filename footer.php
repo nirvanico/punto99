@@ -19,15 +19,25 @@
         </div>
     </div>
 
+    <!-- COOKIES -->
+    <div class="alert alert-dismissible text-center cookiealert" role="alert">
+        <div class="cookiealert-container">
+            <b>Ti piacciono i cookies?</b> &#x1F36A; Usiamo i cookies per fornire una esperienza migliore su questo sito <a href="http://cookiesandyou.com/" target="_blank">Per saperne di più</a>
+
+            <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">
+          Accetto
+      </button>
+        </div>
+    </div>
+    <!-- /COOKIES -->
 
 
 
 
 
+    <script src="js/scripts.min.js"></script>
 
-
-
-
+    <?php /*
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -36,4 +46,6 @@
     <script src="js/lightbox.min.js"></script>
     <!--custom javascript file -->
     <script src="js/custom.js"></script>
+    */
+    ?>
 </footer>

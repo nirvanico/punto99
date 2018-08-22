@@ -7656,7 +7656,7 @@ strong {
   background: red; }
 
 .sub-text {
-  font-size: 14px;
+  font-size: 13px;
   font-style: italic; }
 
 .navbar-brand {
@@ -7732,3 +7732,37 @@ footer {
 
 .info {
   font-size: 15px; }
+
+.cookiealert {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 !important;
+  z-index: 999;
+  opacity: 0;
+  border-radius: 0;
+  background: #212327 url("cubes.png");
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+  color: #ecf0f1; }
+
+.cookiealert.show {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transition-delay: 1000ms;
+       -o-transition-delay: 1000ms;
+          transition-delay: 1000ms; }
+
+.cookiealert a {
+  text-decoration: underline; }
+
+.cookiealert .acceptcookies {
+  margin-left: 10px;
+  vertical-align: baseline; }

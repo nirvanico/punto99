@@ -9,8 +9,9 @@ var gulp = require("gulp"), //http://gulpjs.com/
     imagemin = require('gulp-imagemin'), //https://www.npmjs.com/package/gulp-imagemin
     log = util.log;
 
-
+// scss paths
 var sassFiles = "src/*.scss";
+
 // generazione da sass a css minifizzato
 gulp.task("sass", function () {
     log("Generate CSS files " + (new Date()).toString());
@@ -26,15 +27,30 @@ gulp.task("sass", function () {
         .pipe(minifycss())
         .pipe(gulp.dest('css'));
 });
+//script paths,
+var jsDest = 'js';
+
+gulp.task('scripts', function () {
+    return gulp.src(['src/js/jquery-3.3.1.min.js', 'src/js/bootstrap.bundle.min.js', 'src/js/lightbox.min.js', 'src/js/cookiealert-standalone.js', 'src/js/custom.js'])
+        .pipe(concat('scripts.js'))
+        .pipe(gulp.dest(jsDest))
+        .pipe(rename('scripts.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(jsDest));
+});
 
 
+// task runner predifinito
 gulp.task("watch", function () {
     log("Watching scss files for modifications");
     gulp.watch(sassFiles, ["sass"]);
 });
 
-gulp.task('imgmin', () =>
-    gulp.src('src/images/*')
+
+// ottimizzazione immagini
+
+gulp.task("imgmin", () =>
+    gulp.src("src/images/*")
     .pipe(imagemin({
         interlaced: true,
         progressive: true,
@@ -43,7 +59,5 @@ gulp.task('imgmin', () =>
             removeViewBox: true
         }]
     }))
-    .pipe(gulp.dest('images'))
+    .pipe(gulp.dest("images"))
 );
-
-gulp.task("default", ["sass"]);
