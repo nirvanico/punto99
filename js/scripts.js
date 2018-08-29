@@ -76,7 +76,7 @@ $(document).ready(function () {
 
     // aggiunge una linea rossa accanto a nav-link
     $('.nav-link').hover(function () {
-            $(this).css("border-left", "4px solid red");
+            $(this).css("border-left", "4px solid #046900");
         },
         function () {
             $(this).css("border-left", 'none');

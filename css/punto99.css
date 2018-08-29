@@ -5,6 +5,7 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -7362,8 +7363,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 @font-face {
   font-family: 'fontello';
-  src: url("../font/fontello.eot?35901629");
-  src: url("../font/fontello.eot?35901629#iefix") format("embedded-opentype"), url("../font/fontello.woff2?35901629") format("woff2"), url("../font/fontello.woff?35901629") format("woff"), url("../font/fontello.ttf?35901629") format("truetype"), url("../font/fontello.svg?35901629#fontello") format("svg");
+  src: url("../font/fontello.eot?19698701");
+  src: url("../font/fontello.eot?19698701#iefix") format("embedded-opentype"), url("../font/fontello.woff2?19698701") format("woff2"), url("../font/fontello.woff?19698701") format("woff"), url("../font/fontello.ttf?19698701") format("truetype"), url("../font/fontello.svg?19698701#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -7373,7 +7374,7 @@ a.text-dark:hover, a.text-dark:focus {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?35901629#fontello') format('svg');
+    src: url('../font/fontello.svg?19698701#fontello') format('svg');
   }
 }
 */
@@ -7433,7 +7434,7 @@ a.text-dark:hover, a.text-dark:focus {
   content: '\e806'; }
 
 /* '' */
-.icon-mobile:before {
+.icon-location:before {
   content: '\e807'; }
 
 /* '' */
@@ -7449,7 +7450,7 @@ a.text-dark:hover, a.text-dark:focus {
   content: '\e80a'; }
 
 /* '' */
-.icon-phone:before {
+.icon-mobile:before {
   content: '\e80b'; }
 
 /* '' */
@@ -7644,10 +7645,18 @@ html.lb-disable-scrolling {
   opacity: 1; }
 
 body {
-  background-color: #343a40; }
+  background-color: #343a40;
+  font-family: 'Quicksand', sans-serif; }
 
 strong {
-  color: red; }
+  color: #046900; }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #046900; }
 
 .cerchio {
   width: 18px;
@@ -7669,12 +7678,13 @@ strong {
   background-color: #686868; }
 
 .active {
-  border-left: 4px solid blue !important;
+  border-left: 4px solid white !important;
   padding-left: 8px;
   background-color: #686868; }
 
 .jumbotron {
-  background-color: #e9ecef80; }
+  background-color: #e9ecef80;
+  padding-top: 100px; }
 
 .imghome {
   background: url(../images/HOME.png) no-repeat;
@@ -7713,6 +7723,10 @@ strong {
   background: url(../images/ABBIGLIAMENTO.png) no-repeat;
   background-size: cover; }
 
+.imginsegne {
+  background: url(../images/INSEGNE.png) no-repeat;
+  background-size: cover; }
+
 .imgcontatti {
   background: url(../images/CONTATTI.png) no-repeat;
   background-size: cover; }
@@ -7720,6 +7734,9 @@ strong {
 .gallery {
   width: 25%;
   height: auto; }
+
+.img-thumbnail {
+  border: 1.5px solid #dee2e6; }
 
 footer {
   padding-top: 30px;
