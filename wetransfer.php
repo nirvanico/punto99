@@ -4,7 +4,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 // At this point, you can start using the SDK. Keep reading!
 
-$WT_API_KEY='MNPYMS7Owc64Lv6fVxRtw34EScWzlRyC39rntpz2';
+$WT_API_KEY='yourkey';
 
 echo "Authenticating...\n";
 WeTransfer\Client::setApiKey($WT_API_KEY);
