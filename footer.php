@@ -51,17 +51,18 @@
 
 
 
-    <script src="js/scripts.min.js"></script>
+    <!-- <script src="js/scripts.min.js"></script> -->
 
-    <?php /*
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="src/js/jquery-3.3.1.min.js"></script>
+    <script src="src/js/bootstrap.bundle.min.js"></script>
     <!-- plugin x la gallery -->
-    <script src="js/lightbox.min.js"></script>
+    <script src="src/js/lightbox.min.js"></script>
     <!--custom javascript file -->
-    <script src="js/custom.js"></script>
-    */
-    ?>
+    <script src="src/js/custom.js"></script>
+
+
+
 </footer>

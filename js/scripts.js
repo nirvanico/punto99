@@ -68,6 +68,16 @@ function getCookie(cname) {
 }
 
 $(document).ready(function () {
+    $('input[type="file"]').change(function (e) {
+        var fileName = e.target.files[0].name;
+        alert('The file "' + fileName + '" has been selected.');
+    });
+});
+
+
+$(document).ready(function () {
+
+
 
     //funzioni pagina caricata
     //inserisce home html come pagina primaria
@@ -84,16 +94,14 @@ $(document).ready(function () {
 
     // menù ajax con effetti
     $('.nav-link').click(function (e) {
+
+        e.preventDefault(); //disabilita la funziolità href dei link perchè sostituta da ajax
         $('.nav-link').removeClass('active');
         var value = $(this).attr('href');
         $(this).addClass('active').hide().fadeIn('slow');
 
-
         $('#result').load(value).hide().fadeIn('slow'); // carico le pagine al interno del div #result
 
-        e.preventDefault(); //disabilita la funziolità href dei link perchè sostituta da ajax
+
     });
-
-
-
 });

@@ -4,7 +4,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 // At this point, you can start using the SDK. Keep reading!
 
-$WT_API_KEY='yourkey';
+$WT_API_KEY='MNPYMS7Owc64Lv6fVxRtw34EScWzlRyC39rntpz2';
 
 echo "Authenticating...\n";
 WeTransfer\Client::setApiKey($WT_API_KEY);
@@ -31,5 +31,8 @@ $transfer = WeTransfer\Transfer::addFiles($transfer, [
 echo "Uploading a file...\n";
 foreach ($transfer->getFiles() as $file) {
     WeTransfer\File::upload($file, fopen(realpath('./files/Japan-01.jpg'), 'r'));
+
 }
+
+
 echo "Transfer URL: {$transfer->getShortenedUrl()}\n";

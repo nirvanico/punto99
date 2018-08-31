@@ -49,7 +49,10 @@
                 <a class="nav-link icon-t-shirt" href="abbigliamento.html"> Abbigliamento</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link icon-mail" href="contatti.html"> Contatti</a>
+                <a class="nav-link icon-mail" href="contatti.php"> Contatti</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link icon-mail" href="wt-form.php"> Invia file</a>
             </li>
         </ul>
         <div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
@@ -87,6 +90,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link icon-mail" href="contatti.html"> Contatti</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link icon-mail" href="wt-form.php"> Invia file</a>
                 </li>
 
             </ul>
