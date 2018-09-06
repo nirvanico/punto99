@@ -52,8 +52,8 @@
 
 
     <script src="js/scripts.min.js"></script>
-    <?php /*
 
+    <?php /*
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="src/js/jquery-3.3.1.min.js"></script>

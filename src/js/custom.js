@@ -16,6 +16,31 @@ $(document).ready(function () {
             $(this).css("border-left", 'none');
         });
 
+    // un semplice form validator che lavora tramite bs4 e jquery
+
+    $("#sendbtn").click(function () {
+
+        //Fetch form to apply custom Bootstrap validation
+        var form = $("#target")
+        //alert(form.prop('id')) //test to ensure calling form correctly
+
+        if (form[0].checkValidity() === false) {
+            event.preventDefault()
+            event.stopPropagation()
+        }
+        form.addClass('was-validated')
+        // evento submit
+        $("#target").submit(function (event) {
+            var nome = $('#nome').val();
+            var cognome = $('#cognome').val();
+            var email = $('#email').val();
+            var fileuploaded = $("#customFile").val();
+            alert("Handler for .submit() called." + nome + cognome + email + fileuploaded);
+            event.preventDefault();
+
+        });
+    });
+
 
 });
 
@@ -37,33 +62,14 @@ $('.nav-link').click(function (e) {
 });
 
 
-// funzioni caricate dopo l'esecuzione del ajax
-/*
+
 $(document).ajaxSuccess(function () {
 
+    $('#customFile').change(function () {
 
 
-
-    $('input[type="file"]').change(function () {
-
-        var fileName = e.target.files[0].name;
-        //inserisco il nome del file dentro il div con classe "custom-file-label"
-        $('.custom-file-label').html(fileName);
-
+        var FileName = this.files[0].name;
+        $('.custom-file-label').html(FileName);
     });
-
-    $('#sendbtn').click(function () {
-
-
-        var nome = $('#nome').val();
-        var email = $('#email').val();
-        var comments = $('#comments').val();
-
-        alert(nome);
-
-
-    });
-
 
 });
-*/

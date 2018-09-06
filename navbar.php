@@ -49,7 +49,7 @@
                 <a class="nav-link icon-mail" href="contatti.php"> Contatti</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link icon-mail" href="wt-form.php"> Invia file</a>
+                <a class="nav-link icon-paper-plane" data-toggle="modal" data-target="#wt-modal" href="home.php"> Invia file</a>
             </li>
         </ul>
         <div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
@@ -88,13 +88,13 @@
                 <li class="nav-item">
                     <a class="nav-link icon-mail" href="contatti.php"> Contatti</a>
                 </li>
-                <li class="nav-item invisible">
-                    <a class="nav-link icon-mail" href="wt-form.php"> Invia file</a>
-                </li>
+
 
             </ul>
 
 
         </div>
     </nav>
+
+    <?php include "wt_modal_form.php" ?>
 </div>
