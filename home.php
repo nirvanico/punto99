@@ -1,0 +1,37 @@
+<?php include "check_if_post.php" ?>
+
+<div class="container imghome" id="home">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="jumbotron my-2">
+                <img class="p-2" src="images/home_punto99.png" alt="Punto99">
+                <p class="text-justify">
+                    nasce per svolgere <strong>servizi grafici visivi di piccolo e grande formato su vari supporti</strong> per agevolare le aziende che cercano una qualità di stampa alta ed una <strong>garanzia sulle applicazioni</strong> sia da interno che da esterno. <strong>Punto99</strong> è un'attività artigianale che segue <strong>il processo di lavorazione dal file</strong> alla stampa ed <strong>alla rifinitura</strong> dei materiali.</p>
+            </div>
+        </div>
+
+        <div class="mx-auto">
+            <a href="images/contatti2.jpg" data-lightbox=gallery>
+                <img class="img-thumbnail m-3 gallery lazy" src="images/contatti2.jpg">
+            </a>
+            <a href="images/home2.jpg" data-lightbox=gallery>
+                <img class="img-thumbnail m-3 gallery lazy" src="images/home2.jpg">
+            </a>
+            <a href="images/home3.jpg" data-lightbox=gallery>
+                <img class="img-thumbnail m-3 gallery lazy" src="images/home3.jpg">
+            </a>
+            <a href="images/home5.jpg" data-lightbox=gallery>
+                <img class="img-thumbnail m-3 gallery lazy" src="images/home5.jpg">
+            </a>
+            <a href="images/home1.jpg" data-lightbox=gallery>
+                <img class="img-thumbnail m-3 gallery lazy" src="images/home1.jpg">
+            </a>
+            <a href="images/contatti4.jpg" data-lightbox=gallery>
+                <img class="img-thumbnail m-3 gallery lazy" src="images/contatti4.jpg">
+            </a>
+
+
+        </div>
+
+    </div>
+</div>

@@ -1,3 +1,6 @@
+<?php include "check_if_post.php" ?>
+
+
 <div class="container imgpannelli">
     <div class="row">
         <div class="col-12 col-md-6">

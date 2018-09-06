@@ -1,9 +1,12 @@
+//inserisce home html come pagina primaria
+$('#result').load('front_page.html').hide().fadeIn('slow');
+
+$('#home').addClass('active');
+
+
+//funzioni pagina caricata
 $(document).ready(function () {
 
-    //funzioni pagina caricata
-    //inserisce home html come pagina primaria
-    $('#result').load('home.html').hide().fadeIn('slow');
-    $('#home').addClass('active');
 
     // aggiunge una linea verde accanto a nav-link
     $('.nav-link').hover(function () {
@@ -22,19 +25,26 @@ $('.nav-link').click(function (e) {
     e.preventDefault(); //disabilita la funziolità href dei link perchè sostituta da ajax
     $('.nav-link').removeClass('active');
     var value = $(this).attr('href');
+    var control = {
+        'is_post': true
+    };
     $(this).addClass('active').hide().fadeIn('slow');
 
-    $('#result').load(value).hide().fadeIn('slow'); // carico le pagine al interno del div #result
-
-
+    $.post(value, control, function (data) {
+        $('#result').html(data);
+    }).hide().fadeIn('slow');
 
 });
 
 
 // funzioni caricate dopo l'esecuzione del ajax
+/*
 $(document).ajaxSuccess(function () {
 
-    $('input[type="file"]').change(function (e) {
+
+
+
+    $('input[type="file"]').change(function () {
 
         var fileName = e.target.files[0].name;
         //inserisco il nome del file dentro il div con classe "custom-file-label"
@@ -44,9 +54,16 @@ $(document).ajaxSuccess(function () {
 
     $('#sendbtn').click(function () {
 
-        alert("porcodio");
+
+        var nome = $('#nome').val();
+        var email = $('#email').val();
+        var comments = $('#comments').val();
+
+        alert(nome);
+
 
     });
 
 
 });
+*/

@@ -31,7 +31,7 @@ gulp.task("sass", function () {
 var jsDest = 'js';
 
 gulp.task('scripts', function () {
-    return gulp.src(['src/js/jquery-3.3.1.min.js', 'src/js/bootstrap.bundle.min.js', 'src/js/lightbox.min.js', 'src/js/cookiealert-standalone.js', 'src/js/custom.js'])
+    return gulp.src(['src/js/jquery-3.3.1.min.js', 'src/js/bootstrap.bundle.min.js', 'src/js/lightbox.min.js', 'src/js/jquery.lazy.js', 'src/js/cookiealert-standalone.js', 'src/js/custom.js'])
         .pipe(concat('scripts.js'))
         .pipe(gulp.dest(jsDest))
         .pipe(rename('scripts.min.js'))

@@ -1,3 +1,5 @@
+<?php include "check_if_post.php" ?>
+
 <div class="container imgadesivi">
     <div class="row">
         <div class="col-12 col-md-6">
@@ -10,15 +12,15 @@
 
         <div class="mx-auto">
             <a href="images/adesivi1.jpg" data-lightbox=gallery>
-               <img class="img-thumbnail m-3 gallery" src="images/adesivi1.jpg">
+                <img class="img-thumbnail m-3 gallery" src="images/adesivi1.jpg">
             </a>
 
             <a href="images/adesivi2.jpg" data-lightbox=gallery>
-               <img class="img-thumbnail m-3 gallery" src="images/adesivi2.jpg">
+                <img class="img-thumbnail m-3 gallery" src="images/adesivi2.jpg">
             </a>
 
             <a href="images/adesivi4.jpg" data-lightbox=gallery>
-               <img class="img-thumbnail m-3 gallery" src="images/adesivi4.jpg">
+                <img class="img-thumbnail m-3 gallery" src="images/adesivi4.jpg">
             </a>
 
 

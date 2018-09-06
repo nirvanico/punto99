@@ -1,3 +1,5 @@
+<?php include "check_if_post.php" ?>
+
 <div class="container imgautomezzi">
     <div class="row">
         <div class="col-12 col-md-6">

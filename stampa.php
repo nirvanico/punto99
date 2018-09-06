@@ -1,3 +1,5 @@
+<?php include "check_if_post.php" ?>
+
 <div class="container imgstampa">
     <div class="col-12 col-md-6">
 

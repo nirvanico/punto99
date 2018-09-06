@@ -25,6 +25,878 @@
 !function(a,b){"function"==typeof define&&define.amd?define(["jquery"],b):"object"==typeof exports?module.exports=b(require("jquery")):a.lightbox=b(a.jQuery)}(this,function(a){function b(b){this.album=[],this.currentImageIndex=void 0,this.init(),this.options=a.extend({},this.constructor.defaults),this.option(b)}return b.defaults={albumLabel:"Image %1 of %2",alwaysShowNavOnTouchDevices:!1,fadeDuration:600,fitImagesInViewport:!0,imageFadeDuration:600,positionFromTop:50,resizeDuration:700,showImageNumberLabel:!0,wrapAround:!1,disableScrolling:!1,sanitizeTitle:!1},b.prototype.option=function(b){a.extend(this.options,b)},b.prototype.imageCountLabel=function(a,b){return this.options.albumLabel.replace(/%1/g,a).replace(/%2/g,b)},b.prototype.init=function(){var b=this;a(document).ready(function(){b.enable(),b.build()})},b.prototype.enable=function(){var b=this;a("body").on("click","a[rel^=lightbox], area[rel^=lightbox], a[data-lightbox], area[data-lightbox]",function(c){return b.start(a(c.currentTarget)),!1})},b.prototype.build=function(){if(!(a("#lightbox").length>0)){var b=this;a('<div id="lightboxOverlay" class="lightboxOverlay"></div><div id="lightbox" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /><div class="lb-nav"><a class="lb-prev" href="" ></a><a class="lb-next" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo(a("body")),this.$lightbox=a("#lightbox"),this.$overlay=a("#lightboxOverlay"),this.$outerContainer=this.$lightbox.find(".lb-outerContainer"),this.$container=this.$lightbox.find(".lb-container"),this.$image=this.$lightbox.find(".lb-image"),this.$nav=this.$lightbox.find(".lb-nav"),this.containerPadding={top:parseInt(this.$container.css("padding-top"),10),right:parseInt(this.$container.css("padding-right"),10),bottom:parseInt(this.$container.css("padding-bottom"),10),left:parseInt(this.$container.css("padding-left"),10)},this.imageBorderWidth={top:parseInt(this.$image.css("border-top-width"),10),right:parseInt(this.$image.css("border-right-width"),10),bottom:parseInt(this.$image.css("border-bottom-width"),10),left:parseInt(this.$image.css("border-left-width"),10)},this.$overlay.hide().on("click",function(){return b.end(),!1}),this.$lightbox.hide().on("click",function(c){return"lightbox"===a(c.target).attr("id")&&b.end(),!1}),this.$outerContainer.on("click",function(c){return"lightbox"===a(c.target).attr("id")&&b.end(),!1}),this.$lightbox.find(".lb-prev").on("click",function(){return 0===b.currentImageIndex?b.changeImage(b.album.length-1):b.changeImage(b.currentImageIndex-1),!1}),this.$lightbox.find(".lb-next").on("click",function(){return b.currentImageIndex===b.album.length-1?b.changeImage(0):b.changeImage(b.currentImageIndex+1),!1}),this.$nav.on("mousedown",function(a){3===a.which&&(b.$nav.css("pointer-events","none"),b.$lightbox.one("contextmenu",function(){setTimeout(function(){this.$nav.css("pointer-events","auto")}.bind(b),0)}))}),this.$lightbox.find(".lb-loader, .lb-close").on("click",function(){return b.end(),!1})}},b.prototype.start=function(b){function c(a){d.album.push({alt:a.attr("data-alt"),link:a.attr("href"),title:a.attr("data-title")||a.attr("title")})}var d=this,e=a(window);e.on("resize",a.proxy(this.sizeOverlay,this)),a("select, object, embed").css({visibility:"hidden"}),this.sizeOverlay(),this.album=[];var f,g=0,h=b.attr("data-lightbox");if(h){f=a(b.prop("tagName")+'[data-lightbox="'+h+'"]');for(var i=0;i<f.length;i=++i)c(a(f[i])),f[i]===b[0]&&(g=i)}else if("lightbox"===b.attr("rel"))c(b);else{f=a(b.prop("tagName")+'[rel="'+b.attr("rel")+'"]');for(var j=0;j<f.length;j=++j)c(a(f[j])),f[j]===b[0]&&(g=j)}var k=e.scrollTop()+this.options.positionFromTop,l=e.scrollLeft();this.$lightbox.css({top:k+"px",left:l+"px"}).fadeIn(this.options.fadeDuration),this.options.disableScrolling&&a("html").addClass("lb-disable-scrolling"),this.changeImage(g)},b.prototype.changeImage=function(b){var c=this;this.disableKeyboardNav();var d=this.$lightbox.find(".lb-image");this.$overlay.fadeIn(this.options.fadeDuration),a(".lb-loader").fadeIn("slow"),this.$lightbox.find(".lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption").hide(),this.$outerContainer.addClass("animating");var e=new Image;e.onload=function(){var f,g,h,i,j,k;d.attr({alt:c.album[b].alt,src:c.album[b].link}),a(e),d.width(e.width),d.height(e.height),c.options.fitImagesInViewport&&(k=a(window).width(),j=a(window).height(),i=k-c.containerPadding.left-c.containerPadding.right-c.imageBorderWidth.left-c.imageBorderWidth.right-20,h=j-c.containerPadding.top-c.containerPadding.bottom-c.imageBorderWidth.top-c.imageBorderWidth.bottom-120,c.options.maxWidth&&c.options.maxWidth<i&&(i=c.options.maxWidth),c.options.maxHeight&&c.options.maxHeight<i&&(h=c.options.maxHeight),(e.width>i||e.height>h)&&(e.width/i>e.height/h?(g=i,f=parseInt(e.height/(e.width/g),10),d.width(g),d.height(f)):(f=h,g=parseInt(e.width/(e.height/f),10),d.width(g),d.height(f)))),c.sizeContainer(d.width(),d.height())},e.src=this.album[b].link,this.currentImageIndex=b},b.prototype.sizeOverlay=function(){this.$overlay.width(a(document).width()).height(a(document).height())},b.prototype.sizeContainer=function(a,b){function c(){d.$lightbox.find(".lb-dataContainer").width(g),d.$lightbox.find(".lb-prevLink").height(h),d.$lightbox.find(".lb-nextLink").height(h),d.showImage()}var d=this,e=this.$outerContainer.outerWidth(),f=this.$outerContainer.outerHeight(),g=a+this.containerPadding.left+this.containerPadding.right+this.imageBorderWidth.left+this.imageBorderWidth.right,h=b+this.containerPadding.top+this.containerPadding.bottom+this.imageBorderWidth.top+this.imageBorderWidth.bottom;e!==g||f!==h?this.$outerContainer.animate({width:g,height:h},this.options.resizeDuration,"swing",function(){c()}):c()},b.prototype.showImage=function(){this.$lightbox.find(".lb-loader").stop(!0).hide(),this.$lightbox.find(".lb-image").fadeIn(this.options.imageFadeDuration),this.updateNav(),this.updateDetails(),this.preloadNeighboringImages(),this.enableKeyboardNav()},b.prototype.updateNav=function(){var a=!1;try{document.createEvent("TouchEvent"),a=!!this.options.alwaysShowNavOnTouchDevices}catch(a){}this.$lightbox.find(".lb-nav").show(),this.album.length>1&&(this.options.wrapAround?(a&&this.$lightbox.find(".lb-prev, .lb-next").css("opacity","1"),this.$lightbox.find(".lb-prev, .lb-next").show()):(this.currentImageIndex>0&&(this.$lightbox.find(".lb-prev").show(),a&&this.$lightbox.find(".lb-prev").css("opacity","1")),this.currentImageIndex<this.album.length-1&&(this.$lightbox.find(".lb-next").show(),a&&this.$lightbox.find(".lb-next").css("opacity","1"))))},b.prototype.updateDetails=function(){var b=this;if(void 0!==this.album[this.currentImageIndex].title&&""!==this.album[this.currentImageIndex].title){var c=this.$lightbox.find(".lb-caption");this.options.sanitizeTitle?c.text(this.album[this.currentImageIndex].title):c.html(this.album[this.currentImageIndex].title),c.fadeIn("fast").find("a").on("click",function(b){void 0!==a(this).attr("target")?window.open(a(this).attr("href"),a(this).attr("target")):location.href=a(this).attr("href")})}if(this.album.length>1&&this.options.showImageNumberLabel){var d=this.imageCountLabel(this.currentImageIndex+1,this.album.length);this.$lightbox.find(".lb-number").text(d).fadeIn("fast")}else this.$lightbox.find(".lb-number").hide();this.$outerContainer.removeClass("animating"),this.$lightbox.find(".lb-dataContainer").fadeIn(this.options.resizeDuration,function(){return b.sizeOverlay()})},b.prototype.preloadNeighboringImages=function(){if(this.album.length>this.currentImageIndex+1){(new Image).src=this.album[this.currentImageIndex+1].link}if(this.currentImageIndex>0){(new Image).src=this.album[this.currentImageIndex-1].link}},b.prototype.enableKeyboardNav=function(){a(document).on("keyup.keyboard",a.proxy(this.keyboardAction,this))},b.prototype.disableKeyboardNav=function(){a(document).off(".keyboard")},b.prototype.keyboardAction=function(a){var b=a.keyCode,c=String.fromCharCode(b).toLowerCase();27===b||c.match(/x|o|c/)?this.end():"p"===c||37===b?0!==this.currentImageIndex?this.changeImage(this.currentImageIndex-1):this.options.wrapAround&&this.album.length>1&&this.changeImage(this.album.length-1):"n"!==c&&39!==b||(this.currentImageIndex!==this.album.length-1?this.changeImage(this.currentImageIndex+1):this.options.wrapAround&&this.album.length>1&&this.changeImage(0))},b.prototype.end=function(){this.disableKeyboardNav(),a(window).off("resize",this.sizeOverlay),this.$lightbox.fadeOut(this.options.fadeDuration),this.$overlay.fadeOut(this.options.fadeDuration),a("select, object, embed").css({visibility:"visible"}),this.options.disableScrolling&&a("html").removeClass("lb-disable-scrolling")},new b});
 //# sourceMappingURL=lightbox.min.map
 
+/*!
+ * jQuery & Zepto Lazy - v1.7.9
+ * http://jquery.eisbehr.de/lazy/
+ *
+ * Copyright 2012 - 2018, Daniel 'Eisbehr' Kern
+ *
+ * Dual licensed under the MIT and GPL-2.0 licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * $("img.lazy").lazy();
+ */
+
+;(function(window, undefined) {
+    "use strict";
+
+    // noinspection JSUnresolvedVariable
+    /**
+     * library instance - here and not in construct to be shorter in minimization
+     * @return void
+     */
+    var $ = window.jQuery || window.Zepto,
+
+    /**
+     * unique plugin instance id counter
+     * @type {number}
+     */
+    lazyInstanceId = 0,
+
+    /**
+     * helper to register window load for jQuery 3
+     * @type {boolean}
+     */
+    windowLoaded = false;
+
+    /**
+     * make lazy available to jquery - and make it a bit more case-insensitive :)
+     * @access public
+     * @type {function}
+     * @param {object} settings
+     * @return {LazyPlugin}
+     */
+    $.fn.Lazy = $.fn.lazy = function(settings) {
+        return new LazyPlugin(this, settings);
+    };
+
+    /**
+     * helper to add plugins to lazy prototype configuration
+     * @access public
+     * @type {function}
+     * @param {string|Array} names
+     * @param {string|Array|function} [elements]
+     * @param {function} loader
+     * @return void
+     */
+    $.Lazy = $.lazy = function(names, elements, loader) {
+        // make second parameter optional
+        if ($.isFunction(elements)) {
+            loader = elements;
+            elements = [];
+        }
+
+        // exit here if parameter is not a callable function
+        if (!$.isFunction(loader)) {
+            return;
+        }
+
+        // make parameters an array of names to be sure
+        names = $.isArray(names) ? names : [names];
+        elements = $.isArray(elements) ? elements : [elements];
+
+        var config = LazyPlugin.prototype.config,
+            forced = config._f || (config._f = {});
+
+        // add the loader plugin for every name
+        for (var i = 0, l = names.length; i < l; i++) {
+            if (config[names[i]] === undefined || $.isFunction(config[names[i]])) {
+                config[names[i]] = loader;
+            }
+        }
+
+        // add forced elements loader
+        for (var c = 0, a = elements.length; c < a; c++) {
+            forced[elements[c]] = names[0];
+        }
+    };
+
+    /**
+     * contains all logic and the whole element handling
+     * is packed in a private function outside class to reduce memory usage, because it will not be created on every plugin instance
+     * @access private
+     * @type {function}
+     * @param {LazyPlugin} instance
+     * @param {object} config
+     * @param {object|Array} items
+     * @param {object} events
+     * @param {string} namespace
+     * @return void
+     */
+    function _executeLazy(instance, config, items, events, namespace) {
+        /**
+         * a helper to trigger the 'onFinishedAll' callback after all other events
+         * @access private
+         * @type {number}
+         */
+        var _awaitingAfterLoad = 0,
+
+        /**
+         * visible content width
+         * @access private
+         * @type {number}
+         */
+        _actualWidth = -1,
+
+        /**
+         * visible content height
+         * @access private
+         * @type {number}
+         */
+        _actualHeight = -1,
+
+        /**
+         * determine possibly detected high pixel density
+         * @access private
+         * @type {boolean}
+         */
+        _isRetinaDisplay = false,
+
+        /**
+         * dictionary entry for better minimization
+         * @access private
+         * @type {string}
+         */
+        _afterLoad = 'afterLoad',
+
+        /**
+         * dictionary entry for better minimization
+         * @access private
+         * @type {string}
+         */
+        _load = 'load',
+
+        /**
+         * dictionary entry for better minimization
+         * @access private
+         * @type {string}
+         */
+        _error = 'error',
+
+        /**
+         * dictionary entry for better minimization
+         * @access private
+         * @type {string}
+         */
+        _img = 'img',
+
+        /**
+         * dictionary entry for better minimization
+         * @access private
+         * @type {string}
+         */
+        _src = 'src',
+
+        /**
+         * dictionary entry for better minimization
+         * @access private
+         * @type {string}
+         */
+        _srcset = 'srcset',
+
+        /**
+         * dictionary entry for better minimization
+         * @access private
+         * @type {string}
+         */
+        _sizes = 'sizes',
+
+        /**
+         * dictionary entry for better minimization
+         * @access private
+         * @type {string}
+         */
+        _backgroundImage = 'background-image';
+
+        /**
+         * initialize plugin
+         * bind loading to events or set delay time to load all items at once
+         * @access private
+         * @return void
+         */
+        function _initialize() {
+            // detect actual device pixel ratio
+            // noinspection JSUnresolvedVariable
+            _isRetinaDisplay = window.devicePixelRatio > 1;
+
+            // prepare all initial items
+            items = _prepareItems(items);
+
+            // if delay time is set load all items at once after delay time
+            if (config.delay >= 0) {
+                setTimeout(function() {
+                    _lazyLoadItems(true);
+                }, config.delay);
+            }
+
+            // if no delay is set or combine usage is active bind events
+            if (config.delay < 0 || config.combined) {
+                // create unique event function
+                events.e = _throttle(config.throttle, function(event) {
+                    // reset detected window size on resize event
+                    if (event.type === 'resize') {
+                        _actualWidth = _actualHeight = -1;
+                    }
+
+                    // execute 'lazy magic'
+                    _lazyLoadItems(event.all);
+                });
+
+                // create function to add new items to instance
+                events.a = function(additionalItems) {
+                    additionalItems = _prepareItems(additionalItems);
+                    items.push.apply(items, additionalItems);
+                };
+
+                // create function to get all instance items left
+                events.g = function() {
+                    // filter loaded items before return in case internal filter was not running until now
+                    return (items = $(items).filter(function() {
+                        return !$(this).data(config.loadedName);
+                    }));
+                };
+
+                // create function to force loading elements
+                events.f = function(forcedItems) {
+                    for (var i = 0; i < forcedItems.length; i++) {
+                        // only handle item if available in current instance
+                        // use a compare function, because Zepto can't handle object parameter for filter
+                        // var item = items.filter(forcedItems[i]);
+                        /* jshint loopfunc: true */
+                        var item = items.filter(function() {
+                            return this === forcedItems[i];
+                        });
+
+                        if (item.length) {
+                            _lazyLoadItems(false, item);
+                        }
+                    }
+                };
+
+                // load initial items
+                _lazyLoadItems();
+
+                // bind lazy load functions to scroll and resize event
+                // noinspection JSUnresolvedVariable
+                $(config.appendScroll).on('scroll.' + namespace + ' resize.' + namespace, events.e);
+            }
+        }
+
+        /**
+         * prepare items before handle them
+         * @access private
+         * @param {Array|object|jQuery} items
+         * @return {Array|object|jQuery}
+         */
+        function _prepareItems(items) {
+            // fetch used configurations before loops
+            var defaultImage = config.defaultImage,
+                placeholder = config.placeholder,
+                imageBase = config.imageBase,
+                srcsetAttribute = config.srcsetAttribute,
+                loaderAttribute = config.loaderAttribute,
+                forcedTags = config._f || {};
+
+            // filter items and only add those who not handled yet and got needed attributes available
+            items = $(items).filter(function() {
+                var element = $(this),
+                    tag = _getElementTagName(this);
+
+                return !element.data(config.handledName) &&
+                       (element.attr(config.attribute) || element.attr(srcsetAttribute) || element.attr(loaderAttribute) || forcedTags[tag] !== undefined);
+            })
+
+            // append plugin instance to all elements
+            .data('plugin_' + config.name, instance);
+
+            for (var i = 0, l = items.length; i < l; i++) {
+                var element = $(items[i]),
+                    tag = _getElementTagName(items[i]),
+                    elementImageBase = element.attr(config.imageBaseAttribute) || imageBase;
+
+                // generate and update source set if an image base is set
+                if (tag === _img && elementImageBase && element.attr(srcsetAttribute)) {
+                    element.attr(srcsetAttribute, _getCorrectedSrcSet(element.attr(srcsetAttribute), elementImageBase));
+                }
+
+                // add loader to forced element types
+                if (forcedTags[tag] !== undefined && !element.attr(loaderAttribute)) {
+                    element.attr(loaderAttribute, forcedTags[tag]);
+                }
+
+                // set default image on every element without source
+                if (tag === _img && defaultImage && !element.attr(_src)) {
+                    element.attr(_src, defaultImage);
+                }
+
+                // set placeholder on every element without background image
+                else if (tag !== _img && placeholder && (!element.css(_backgroundImage) || element.css(_backgroundImage) === 'none')) {
+                    element.css(_backgroundImage, "url('" + placeholder + "')");
+                }
+            }
+
+            return items;
+        }
+
+        /**
+         * the 'lazy magic' - check all items
+         * @access private
+         * @param {boolean} [allItems]
+         * @param {object} [forced]
+         * @return void
+         */
+        function _lazyLoadItems(allItems, forced) {
+            // skip if no items where left
+            if (!items.length) {
+                // destroy instance if option is enabled
+                if (config.autoDestroy) {
+                    // noinspection JSUnresolvedFunction
+                    instance.destroy();
+                }
+
+                return;
+            }
+
+            var elements = forced || items,
+                loadTriggered = false,
+                imageBase = config.imageBase || '',
+                srcsetAttribute = config.srcsetAttribute,
+                handledName = config.handledName;
+
+            // loop all available items
+            for (var i = 0; i < elements.length; i++) {
+                // item is at least in loadable area
+                if (allItems || forced || _isInLoadableArea(elements[i])) {
+                    var element = $(elements[i]),
+                        tag = _getElementTagName(elements[i]),
+                        attribute = element.attr(config.attribute),
+                        elementImageBase = element.attr(config.imageBaseAttribute) || imageBase,
+                        customLoader = element.attr(config.loaderAttribute);
+
+                        // is not already handled
+                    if (!element.data(handledName) &&
+                        // and is visible or visibility doesn't matter
+                        (!config.visibleOnly || element.is(':visible')) && (
+                        // and image source or source set attribute is available
+                        (attribute || element.attr(srcsetAttribute)) && (
+                            // and is image tag where attribute is not equal source or source set
+                            (tag === _img && (elementImageBase + attribute !== element.attr(_src) || element.attr(srcsetAttribute) !== element.attr(_srcset))) ||
+                            // or is non image tag where attribute is not equal background
+                            (tag !== _img && elementImageBase + attribute !== element.css(_backgroundImage))
+                        ) ||
+                        // or custom loader is available
+                        customLoader))
+                    {
+                        // mark element always as handled as this point to prevent double handling
+                        loadTriggered = true;
+                        element.data(handledName, true);
+
+                        // load item
+                        _handleItem(element, tag, elementImageBase, customLoader);
+                    }
+                }
+            }
+
+            // when something was loaded remove them from remaining items
+            if (loadTriggered) {
+                items = $(items).filter(function() {
+                    return !$(this).data(handledName);
+                });
+            }
+        }
+
+        /**
+         * load the given element the lazy way
+         * @access private
+         * @param {object} element
+         * @param {string} tag
+         * @param {string} imageBase
+         * @param {function} [customLoader]
+         * @return void
+         */
+        function _handleItem(element, tag, imageBase, customLoader) {
+            // increment count of items waiting for after load
+            ++_awaitingAfterLoad;
+
+            // extended error callback for correct 'onFinishedAll' handling
+            var errorCallback = function() {
+                _triggerCallback('onError', element);
+                _reduceAwaiting();
+
+                // prevent further callback calls
+                errorCallback = $.noop;
+            };
+
+            // trigger function before loading image
+            _triggerCallback('beforeLoad', element);
+
+            // fetch all double used data here for better code minimization
+            var srcAttribute = config.attribute,
+                srcsetAttribute = config.srcsetAttribute,
+                sizesAttribute = config.sizesAttribute,
+                retinaAttribute = config.retinaAttribute,
+                removeAttribute = config.removeAttribute,
+                loadedName = config.loadedName,
+                elementRetina = element.attr(retinaAttribute);
+
+            // handle custom loader
+            if (customLoader) {
+                // on load callback
+                var loadCallback = function() {
+                    // remove attribute from element
+                    if (removeAttribute) {
+                        element.removeAttr(config.loaderAttribute);
+                    }
+
+                    // mark element as loaded
+                    element.data(loadedName, true);
+
+                    // call after load event
+                    _triggerCallback(_afterLoad, element);
+
+                    // remove item from waiting queue and possibly trigger finished event
+                    // it's needed to be asynchronous to run after filter was in _lazyLoadItems
+                    setTimeout(_reduceAwaiting, 1);
+
+                    // prevent further callback calls
+                    loadCallback = $.noop;
+                };
+
+                // bind error event to trigger callback and reduce waiting amount
+                element.off(_error).one(_error, errorCallback)
+
+                // bind after load callback to element
+                .one(_load, loadCallback);
+
+                // trigger custom loader and handle response
+                if (!_triggerCallback(customLoader, element, function(response) {
+                    if(response) {
+                        element.off(_load);
+                        loadCallback();
+                    }
+                    else {
+                        element.off(_error);
+                        errorCallback();
+                    }
+                })) {
+                    element.trigger(_error);
+                }
+            }
+
+            // handle images
+            else {
+                // create image object
+                var imageObj = $(new Image());
+
+                // bind error event to trigger callback and reduce waiting amount
+                imageObj.one(_error, errorCallback)
+
+                // bind after load callback to image
+                .one(_load, function() {
+                    // remove element from view
+                    element.hide();
+
+                    // set image back to element
+                    // do it as single 'attr' calls, to be sure 'src' is set after 'srcset'
+                    if (tag === _img) {
+                        element.attr(_sizes, imageObj.attr(_sizes))
+                               .attr(_srcset, imageObj.attr(_srcset))
+                               .attr(_src, imageObj.attr(_src));
+                    }
+                    else {
+                        element.css(_backgroundImage, "url('" + imageObj.attr(_src) + "')");
+                    }
+
+                    // bring it back with some effect!
+                    element[config.effect](config.effectTime);
+
+                    // remove attribute from element
+                    if (removeAttribute) {
+                        element.removeAttr(srcAttribute + ' ' + srcsetAttribute + ' ' + retinaAttribute + ' ' + config.imageBaseAttribute);
+
+                        // only remove 'sizes' attribute, if it was a custom one
+                        if (sizesAttribute !== _sizes) {
+                            element.removeAttr(sizesAttribute);
+                        }
+                    }
+
+                    // mark element as loaded
+                    element.data(loadedName, true);
+
+                    // call after load event
+                    _triggerCallback(_afterLoad, element);
+
+                    // cleanup image object
+                    imageObj.remove();
+
+                    // remove item from waiting queue and possibly trigger finished event
+                    _reduceAwaiting();
+                });
+
+                // set sources
+                // do it as single 'attr' calls, to be sure 'src' is set after 'srcset'
+                var imageSrc = (_isRetinaDisplay && elementRetina ? elementRetina : element.attr(srcAttribute)) || '';
+                imageObj.attr(_sizes, element.attr(sizesAttribute))
+                        .attr(_srcset, element.attr(srcsetAttribute))
+                        .attr(_src, imageSrc ? imageBase + imageSrc : null);
+
+                // call after load even on cached image
+                imageObj.complete && imageObj.trigger(_load); // jshint ignore : line
+            }
+        }
+
+        /**
+         * check if the given element is inside the current viewport or threshold
+         * @access private
+         * @param {object} element
+         * @return {boolean}
+         */
+        function _isInLoadableArea(element) {
+            var elementBound = element.getBoundingClientRect(),
+                direction    = config.scrollDirection,
+                threshold    = config.threshold,
+                vertical     = // check if element is in loadable area from top
+                               ((_getActualHeight() + threshold) > elementBound.top) &&
+                               // check if element is even in loadable are from bottom
+                               (-threshold < elementBound.bottom),
+                horizontal   = // check if element is in loadable area from left
+                               ((_getActualWidth() + threshold) > elementBound.left) &&
+                               // check if element is even in loadable area from right
+                               (-threshold < elementBound.right);
+
+            if (direction === 'vertical') {
+                return vertical;
+            }
+            else if (direction === 'horizontal') {
+                return horizontal;
+            }
+
+            return vertical && horizontal;
+        }
+
+        /**
+         * receive the current viewed width of the browser
+         * @access private
+         * @return {number}
+         */
+        function _getActualWidth() {
+            return _actualWidth >= 0 ? _actualWidth : (_actualWidth = $(window).width());
+        }
+
+        /**
+         * receive the current viewed height of the browser
+         * @access private
+         * @return {number}
+         */
+        function _getActualHeight() {
+            return _actualHeight >= 0 ? _actualHeight : (_actualHeight = $(window).height());
+        }
+
+        /**
+         * get lowercase tag name of an element
+         * @access private
+         * @param {object} element
+         * @returns {string}
+         */
+        function _getElementTagName(element) {
+            return element.tagName.toLowerCase();
+        }
+
+        /**
+         * prepend image base to all srcset entries
+         * @access private
+         * @param {string} srcset
+         * @param {string} imageBase
+         * @returns {string}
+         */
+        function _getCorrectedSrcSet(srcset, imageBase) {
+            if (imageBase) {
+                // trim, remove unnecessary spaces and split entries
+                var entries = srcset.split(',');
+                srcset = '';
+
+                for (var i = 0, l = entries.length; i < l; i++) {
+                    srcset += imageBase + entries[i].trim() + (i !== l - 1 ? ',' : '');
+                }
+            }
+
+            return srcset;
+        }
+
+        /**
+         * helper function to throttle down event triggering
+         * @access private
+         * @param {number} delay
+         * @param {function} callback
+         * @return {function}
+         */
+        function _throttle(delay, callback) {
+            var timeout,
+                lastExecute = 0;
+
+            return function(event, ignoreThrottle) {
+                var elapsed = +new Date() - lastExecute;
+
+                function run() {
+                    lastExecute = +new Date();
+                    // noinspection JSUnresolvedFunction
+                    callback.call(instance, event);
+                }
+
+                timeout && clearTimeout(timeout); // jshint ignore : line
+
+                if (elapsed > delay || !config.enableThrottle || ignoreThrottle) {
+                    run();
+                }
+                else {
+                    timeout = setTimeout(run, delay - elapsed);
+                }
+            };
+        }
+
+        /**
+         * reduce count of awaiting elements to 'afterLoad' event and fire 'onFinishedAll' if reached zero
+         * @access private
+         * @return void
+         */
+        function _reduceAwaiting() {
+            --_awaitingAfterLoad;
+
+            // if no items were left trigger finished event
+            if (!items.length && !_awaitingAfterLoad) {
+                _triggerCallback('onFinishedAll');
+            }
+        }
+
+        /**
+         * single implementation to handle callbacks, pass element and set 'this' to current instance
+         * @access private
+         * @param {string|function} callback
+         * @param {object} [element]
+         * @param {*} [args]
+         * @return {boolean}
+         */
+        function _triggerCallback(callback, element, args) {
+            if ((callback = config[callback])) {
+                // jQuery's internal '$(arguments).slice(1)' are causing problems at least on old iPads
+                // below is shorthand of 'Array.prototype.slice.call(arguments, 1)'
+                callback.apply(instance, [].slice.call(arguments, 1));
+                return true;
+            }
+
+            return false;
+        }
+
+        // if event driven or window is already loaded don't wait for page loading
+        if (config.bind === 'event' || windowLoaded) {
+            _initialize();
+        }
+
+        // otherwise load initial items and start lazy after page load
+        else {
+            // noinspection JSUnresolvedVariable
+            $(window).on(_load + '.' + namespace, _initialize);
+        }
+    }
+
+    /**
+     * lazy plugin class constructor
+     * @constructor
+     * @access private
+     * @param {object} elements
+     * @param {object} settings
+     * @return {object|LazyPlugin}
+     */
+    function LazyPlugin(elements, settings) {
+        /**
+         * this lazy plugin instance
+         * @access private
+         * @type {object|LazyPlugin|LazyPlugin.prototype}
+         */
+        var _instance = this,
+
+        /**
+         * this lazy plugin instance configuration
+         * @access private
+         * @type {object}
+         */
+        _config = $.extend({}, _instance.config, settings),
+
+        /**
+         * instance generated event executed on container scroll or resize
+         * packed in an object to be referenceable and short named because properties will not be minified
+         * @access private
+         * @type {object}
+         */
+        _events = {},
+
+        /**
+         * unique namespace for instance related events
+         * @access private
+         * @type {string}
+         */
+        _namespace = _config.name + '-' + (++lazyInstanceId);
+
+        // noinspection JSUndefinedPropertyAssignment
+        /**
+         * wrapper to get or set an entry from plugin instance configuration
+         * much smaller on minify as direct access
+         * @access public
+         * @type {function}
+         * @param {string} entryName
+         * @param {*} [value]
+         * @return {LazyPlugin|*}
+         */
+        _instance.config = function(entryName, value) {
+            if (value === undefined) {
+                return _config[entryName];
+            }
+
+            _config[entryName] = value;
+            return _instance;
+        };
+
+        // noinspection JSUndefinedPropertyAssignment
+        /**
+         * add additional items to current instance
+         * @access public
+         * @param {Array|object|string} items
+         * @return {LazyPlugin}
+         */
+        _instance.addItems = function(items) {
+            _events.a && _events.a($.type(items) === 'string' ? $(items) : items); // jshint ignore : line
+            return _instance;
+        };
+
+        // noinspection JSUndefinedPropertyAssignment
+        /**
+         * get all left items of this instance
+         * @access public
+         * @returns {object}
+         */
+        _instance.getItems = function() {
+            return _events.g ? _events.g() : {};
+        };
+
+        // noinspection JSUndefinedPropertyAssignment
+        /**
+         * force lazy to load all items in loadable area right now
+         * by default without throttle
+         * @access public
+         * @type {function}
+         * @param {boolean} [useThrottle]
+         * @return {LazyPlugin}
+         */
+        _instance.update = function(useThrottle) {
+            _events.e && _events.e({}, !useThrottle); // jshint ignore : line
+            return _instance;
+        };
+
+        // noinspection JSUndefinedPropertyAssignment
+        /**
+         * force element(s) to load directly, ignoring the viewport
+         * @access public
+         * @param {Array|object|string} items
+         * @return {LazyPlugin}
+         */
+        _instance.force = function(items) {
+            _events.f && _events.f($.type(items) === 'string' ? $(items) : items); // jshint ignore : line
+            return _instance;
+        };
+
+        // noinspection JSUndefinedPropertyAssignment
+        /**
+         * force lazy to load all available items right now
+         * this call ignores throttling
+         * @access public
+         * @type {function}
+         * @return {LazyPlugin}
+         */
+        _instance.loadAll = function() {
+            _events.e && _events.e({all: true}, true); // jshint ignore : line
+            return _instance;
+        };
+
+        // noinspection JSUndefinedPropertyAssignment
+        /**
+         * destroy this plugin instance
+         * @access public
+         * @type {function}
+         * @return undefined
+         */
+        _instance.destroy = function() {
+            // unbind instance generated events
+            // noinspection JSUnresolvedFunction, JSUnresolvedVariable
+            $(_config.appendScroll).off('.' + _namespace, _events.e);
+            // noinspection JSUnresolvedVariable
+            $(window).off('.' + _namespace);
+
+            // clear events
+            _events = {};
+
+            return undefined;
+        };
+
+        // start using lazy and return all elements to be chainable or instance for further use
+        // noinspection JSUnresolvedVariable
+        _executeLazy(_instance, _config, elements, _events, _namespace);
+        return _config.chainable ? elements : _instance;
+    }
+
+    /**
+     * settings and configuration data
+     * @access public
+     * @type {object|*}
+     */
+    LazyPlugin.prototype.config = {
+        // general
+        name               : 'lazy',
+        chainable          : true,
+        autoDestroy        : true,
+        bind               : 'load',
+        threshold          : 500,
+        visibleOnly        : false,
+        appendScroll       : window,
+        scrollDirection    : 'both',
+        imageBase          : null,
+        defaultImage       : 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==',
+        placeholder        : null,
+        delay              : -1,
+        combined           : false,
+
+        // attributes
+        attribute          : 'data-src',
+        srcsetAttribute    : 'data-srcset',
+        sizesAttribute     : 'data-sizes',
+        retinaAttribute    : 'data-retina',
+        loaderAttribute    : 'data-loader',
+        imageBaseAttribute : 'data-imagebase',
+        removeAttribute    : true,
+        handledName        : 'handled',
+        loadedName         : 'loaded',
+
+        // effect
+        effect             : 'show',
+        effectTime         : 0,
+
+        // throttle
+        enableThrottle     : true,
+        throttle           : 250,
+
+        // callbacks
+        beforeLoad         : undefined,
+        afterLoad          : undefined,
+        onError            : undefined,
+        onFinishedAll      : undefined
+    };
+
+    // register window load event globally to prevent not loading elements
+    // since jQuery 3.X ready state is fully async and may be executed after 'load'
+    $(window).on('load', function() {
+        windowLoaded = true;
+    });
+})(window);
 (function () {
     "use strict";
 
@@ -67,24 +939,17 @@ function getCookie(cname) {
     return "";
 }
 
+//inserisce home html come pagina primaria
+$('#result').load('front_page.html').hide().fadeIn('slow');
+
+$('#home').addClass('active');
+
+
+//funzioni pagina caricata
 $(document).ready(function () {
-    $('input[type="file"]').change(function (e) {
-        var fileName = e.target.files[0].name;
-        alert('The file "' + fileName + '" has been selected.');
-    });
-});
 
 
-$(document).ready(function () {
-
-
-
-    //funzioni pagina caricata
-    //inserisce home html come pagina primaria
-    $('#result').load('home.html').hide().fadeIn('slow');
-    $('#home').addClass('active');
-
-    // aggiunge una linea rossa accanto a nav-link
+    // aggiunge una linea verde accanto a nav-link
     $('.nav-link').hover(function () {
             $(this).css("border-left", "4px solid #046900");
         },
@@ -92,16 +957,54 @@ $(document).ready(function () {
             $(this).css("border-left", 'none');
         });
 
-    // menù ajax con effetti
-    $('.nav-link').click(function (e) {
 
-        e.preventDefault(); //disabilita la funziolità href dei link perchè sostituta da ajax
-        $('.nav-link').removeClass('active');
-        var value = $(this).attr('href');
-        $(this).addClass('active').hide().fadeIn('slow');
+});
 
-        $('#result').load(value).hide().fadeIn('slow'); // carico le pagine al interno del div #result
+// menù ajax con effetti
+$('.nav-link').click(function (e) {
+
+    e.preventDefault(); //disabilita la funziolità href dei link perchè sostituta da ajax
+    $('.nav-link').removeClass('active');
+    var value = $(this).attr('href');
+    var control = {
+        'is_post': true
+    };
+    $(this).addClass('active').hide().fadeIn('slow');
+
+    $.post(value, control, function (data) {
+        $('#result').html(data);
+    }).hide().fadeIn('slow');
+
+});
+
+
+// funzioni caricate dopo l'esecuzione del ajax
+/*
+$(document).ajaxSuccess(function () {
+
+
+
+
+    $('input[type="file"]').change(function () {
+
+        var fileName = e.target.files[0].name;
+        //inserisco il nome del file dentro il div con classe "custom-file-label"
+        $('.custom-file-label').html(fileName);
+
+    });
+
+    $('#sendbtn').click(function () {
+
+
+        var nome = $('#nome').val();
+        var email = $('#email').val();
+        var comments = $('#comments').val();
+
+        alert(nome);
 
 
     });
+
+
 });
+*/

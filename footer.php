@@ -51,8 +51,8 @@
 
 
 
-    <!-- <script src="js/scripts.min.js"></script> -->
-
+    <script src="js/scripts.min.js"></script>
+    <?php /*
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -63,6 +63,6 @@
     <!--custom javascript file -->
     <script src="src/js/custom.js"></script>
 
-
+*/ ?>
 
 </footer>

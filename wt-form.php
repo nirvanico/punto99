@@ -1,4 +1,4 @@
-<?php /* form */ ?>
+<?php include "check_if_post.php" ?>
 <div class="container p-2">
 
     <form class="w-50">
