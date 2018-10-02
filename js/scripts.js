@@ -983,9 +983,36 @@ $(document).ready(function () {
         });
     });
 
+    $('.nav-link').click(function (e) {
+
+        e.preventDefault(); // evito l'azione predefinita del link <a>
+        $('.nav.link').removeClass('active');
+
+        var route = $(this).attr('data-page'); //prendo l'attributo data page;
+        alert(route); // controllo se lo ha selezionato
+        $(this).addClass('active').hide().fadeIn('slow');
+
+        $.ajax({
+            method: 'POST',
+            url: 'routing.php',
+            data: {page: route},
+            complete: function (response) {
+                if (response.message == 'OK') {
+                    $('#result').html(response.result).hide().fadeIn('slow'); //mostro il risultato nel div #result
+                } else {
+                    alert('Errore!');
+                }
+            }
+
+        });
+
+    });
+
 
 });
 
+
+/*
 // menù ajax con effetti
 $('.nav-link').click(function (e) {
 
@@ -1002,7 +1029,7 @@ $('.nav-link').click(function (e) {
     }).hide().fadeIn('slow');
 
 });
-
+*/
 
 
 $(document).ajaxSuccess(function () {

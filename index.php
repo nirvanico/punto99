@@ -46,7 +46,6 @@
         <!-- fine della navbar -->
 
         <div class="col mt-5 ">
-
             <div id=result>
                 <?php /* qua lavora ajax */ ?>
             </div>
